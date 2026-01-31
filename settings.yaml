@@ -1,0 +1,23 @@
+
+# settings.yaml
+tenant_id: "YOUR_TENANT_GUID"
+client_id: "YOUR_APP_CLIENT_ID"
+client_secret: "YOUR_APP_CLIENT_SECRET"
+
+# Target Team/Channels
+use_existing_team: true           # true=use an existing team; false=create new team in migration mode
+team_id: "YOUR_TEAM_ID"           # if use_existing_team=true
+team_display_name: "Imported from Google Chat"  # used if we create a new team
+channels:
+  - source_label: "Space_ProjectA" # a friendly name to map from your Takeout folders
+    channel_id: "YOUR_CHANNEL_ID"  # if using an existing channel
+    channel_display_name: "Project A (Archive)" # used if we create channels in migration mode
+
+# Paths
+takeout_root: "/path/to/Takeout/Google Chat"
+staging_root: "./staging"         # tool A output; tool B input
+
+# Import behavior
+post_to_channel: true
+post_to_chat: false               # set true if you also import DMs / group chats
+max_message_batch: 500
